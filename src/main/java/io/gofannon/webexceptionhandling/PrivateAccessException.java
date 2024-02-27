@@ -16,14 +16,12 @@
 
 package io.gofannon.webexceptionhandling;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class WebExceptionHandlingApplicationTests {
+//@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+public class PrivateAccessException extends RuntimeException{
 
-    @Test
-    void contextLoads() {
+    public PrivateAccessException(String message) {
+        super(message);
     }
 
 }

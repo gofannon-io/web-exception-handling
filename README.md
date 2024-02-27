@@ -59,19 +59,22 @@ $ curl -s -v http://localhost:9000/home/hello
 La réponse du serveur est la suivante :
 ```text
 Hello you !
+* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
 *   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/hello HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 200
 < Content-Type: text/plain;charset=UTF-8
-< Content-Length: 12
-< Date: Sat, 24 Feb 2024 14:18:25 GMT
+< Content-Length: 11
+< Date: Tue, 27 Feb 2024 19:20:56 GMT
 <
-{ [12 bytes data]
+{ [11 bytes data]
 * Connection #0 to host localhost left intact
 ```
 
@@ -97,19 +100,23 @@ $ curl -s -v http://localhost:9000/home/forbidden
 
 La réponse du serveur est la suivante :
 ```text
-{"timestamp":"2024-02-24T21:28:57.366+00:00","status":403,"error":"Forbidden","trace":"org.springframework.web.server.ResponseStatusException: 403 FORBIDDEN \"You shall not pass !\"\r\n\tat io.gofannon.webexceptionhandling.MyWebController.getForbidden(MyWebController.java:32)\r\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)\r\n\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)\r\n\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)\r\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\r\n","message":"You shall not pass !","path":"/home/forbidden"}*   Trying [::1]:9000...
+{"timestamp":"2024-02-27T19:53:20.531+00:00","status":403,"error":"Forbidden","trace":"org.springframework.web.server.ResponseStatusException: 403 FORBIDDEN \"You shall not pass !\"\r\n\tat io.gofannon.webexceptionhandling.MyWebController.getForbidden(MyWebController.java:35)\r\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)\r\n\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)\r\n\tat jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat io.gofannon.webexceptionhandling.MyFilter.doFilter(MyFilter.java:36)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)\r\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\r\n","message":"You shall not pass !","path":"/home/forbidden"}* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/forbidden HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 403
 < Content-Type: application/json
 < Transfer-Encoding: chunked
-< Date: Sat, 24 Feb 2024 21:28:57 GMT
+< Date: Tue, 27 Feb 2024 19:53:20 GMT
 <
-{ [5090 bytes data]
+{ [5360 bytes data]
+* Leftovers after chunking: 5 bytes
 * Connection #0 to host localhost left intact
 ```
 Cette réponse fournit des résultats cohérents et attendus (dont le code HTTP), elle contient néanmoins trop d'informations que le développeur n'a pas choisies.
@@ -139,19 +146,22 @@ Cette fois-ci, la réponse retournée est :
 {
     "message": "You shall not pass !"
 }
+* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
 *   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/forbidden HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 403
 < Content-Type: application/json
-< Content-Length: 42
-< Date: Sat, 24 Feb 2024 21:44:03 GMT
+< Content-Length: 41
+< Date: Tue, 27 Feb 2024 19:55:28 GMT
 <
-{ [42 bytes data]
+{ [41 bytes data]
 * Connection #0 to host localhost left intact
 ```
 La réponse est en adéquation avec le résultat voulu.
@@ -166,13 +176,13 @@ Le principe est, au sein d'un filtre *jakarta.servlet.Filter*, de lever une exce
 Le code java est le suivant :
 ```java
 @Component
-public class AccessVerifierFilter implements Filter {
+public class MyFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        if (request.getRequestURI().toLowerCase().contains("secret")) {
-            throw new UnauthorizedAccessException("Stop ! This access is forbidden");
+        if (request.getRequestURI().toLowerCase().contains("private")) {
+            throw new PrivateAccessException("Stop ! This access is private");
         }
 
         filterChain.doFilter(servletRequest, servletResponse);
@@ -184,8 +194,8 @@ public class AccessVerifierFilter implements Filter {
 @ControllerAdvice
 public class MyExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(UnauthorizedAccessException.class)
-    public ResponseEntity<String> handleUnauthorizedAccessException(UnauthorizedAccessException ex) {
+    @ExceptionHandler(PrivateAccessException.class)
+    public ResponseEntity<String> handlePrivateAccessException(PrivateAccessException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body("""
@@ -199,25 +209,29 @@ public class MyExceptionHandler extends ResponseEntityExceptionHandler {
 
 La commande du client est :
 ```shell
-$ curl -s -v http://localhost:9000/home/secret
+$ curl -s -v http://localhost:9000/home/private
 ```
 
 La réponse du serveur est :
 ```text
-{"timestamp":"2024-02-25T20:06:06.276+00:00","status":500,"error":"Internal Server Error","trace":"io.gofannon.webexceptionhandling.UnauthorizedAccessException: Stop ! This access is forbidden\r\n\tat io.gofannon.webexceptionhandling.AccessVerifierFilter.doFilter(AccessVerifierFilter.java:16)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)\r\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\r\n","message":"Stop ! This access is forbidden","path":"/home/secret"}*   Trying [::1]:9000...
+{"timestamp":"2024-02-27T20:23:02.009+00:00","status":500,"error":"Internal Server Error","trace":"io.gofannon.webexceptionhandling.PrivateAccessException: Stop ! This end-point is private\r\n\tat io.gofannon.webexceptionhandling.MyFilter.doFilter(MyFilter.java:33)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)\r\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\r\n","message":"Stop ! This end-point is private","path":"/home/private"}* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
-> GET /home/secret HTTP/1.1
+> GET /home/private HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 500
 < Content-Type: application/json
 < Transfer-Encoding: chunked
-< Date: Sun, 25 Feb 2024 20:06:06 GMT
+< Date: Tue, 27 Feb 2024 20:23:02 GMT
 < Connection: close
 <
-{ [3225 bytes data]
+{ [3199 bytes data]
+* Leftovers after chunking: 5 bytes
 * Closing connection
 ```
 
@@ -230,13 +244,25 @@ Le principe est, au sein d'un interceptor *org.springframework.web.servlet.Handl
 
 Le code Java est le suivant :
 ```java
+@RestController
+public class MyWebController {
+  
+    @GetMapping(value = "/secret", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String getSecret() {
+        return "This is a secret";
+    }
+
+  // [...]
+}
+
+/////////////////////////////
 @Component
 public class MyInterceptor implements HandlerInterceptor    {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     if (request.getRequestURI().toLowerCase().contains("secret")) {
-      throw new UnauthorizedAccessException("STOP ! This access is forbidden");
+      throw new PrivateAccessException("STOP ! This access is forbidden");
     }
 
     return HandlerInterceptor.super.preHandle(request, response, handler);
@@ -273,19 +299,22 @@ $ curl -s -v http://localhost:9000/home/secret
 La réponse du serveur est :
 ```text
 {
-    "message": "STOP ! This access is forbidden"
+    "message": "STOP ! This end-point is secret"
 }
+* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
 *   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/secret HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 401
 < Content-Type: application/json
 < Content-Length: 52
-< Date: Sun, 25 Feb 2024 20:20:13 GMT
+< Date: Tue, 27 Feb 2024 20:27:18 GMT
 <
 { [52 bytes data]
 * Connection #0 to host localhost left intact
@@ -336,17 +365,20 @@ La réponse du serveur est :
 {
     "message": "Oups, Houston, we have a problem"
 }
+* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
 *   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/trouble HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 500
 < Content-Type: application/json
 < Content-Length: 53
-< Date: Sun, 25 Feb 2024 20:53:32 GMT
+< Date: Tue, 27 Feb 2024 20:30:00 GMT
 < Connection: close
 <
 { [53 bytes data]
@@ -404,18 +436,20 @@ La réponse du serveur est :
 ```text
 {
     "message": "No more tea"
-}
+}* Host localhost:9000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
 *   Trying [::1]:9000...
 * Connected to localhost (::1) port 9000
 > GET /home/teatime HTTP/1.1
 > Host: localhost:9000
-> User-Agent: curl/8.4.0
+> User-Agent: curl/8.6.0
 > Accept: */*
 >
 < HTTP/1.1 500
 < Content-Type: application/json
 < Content-Length: 32
-< Date: Mon, 26 Feb 2024 20:55:39 GMT
+< Date: Tue, 27 Feb 2024 20:32:30 GMT
 < Connection: close
 <
 { [32 bytes data]
@@ -429,13 +463,27 @@ Ainsi, dans le handler par défaut des exceptions, il est possible d'exploiter l
 
 Ces différents cas d'utilisation et leur implémentation permet de dessiner une approche globale de la gestion des erreurs HTTP.
 
+
 Cette approche est la suivante :
-* La création d'une classe d'interception des exceptions contenant :
-  * une méthode d'interception pour chaque exception métier connue
-  * une méthode d'interception par défaut pour les autres exceptions 
-* L'usage des filtres de flux HTTP : 
-  * dans *HandlerInterceptor*, les exceptions sont exploitées par la classe d'interception.
-  * dans *Filter*, les exceptions ne sont pas interceptables par la classe d'interception. C'est donc au sein du filtre qu'il faudra générer une réponse HTTP d'erreur.
+* [S1] La création d'une classe d'interception des exceptions contenant :
+  * [S1A] une méthode d'interception pour chaque exception métier connue
+  * [S1B] une méthode d'interception par défaut pour les autres exceptions 
+* [S2] L'usage des filtres de flux HTTP : 
+  * [S2A] dans *HandlerInterceptor*, les exceptions sont exploitées par la classe d'interception.
+  * [S2B] dans *Filter*, les exceptions ne sont pas interceptables par la classe d'interception. C'est donc au sein du filtre qu'il faudra générer une réponse HTTP d'erreur.
+
+
+Cette approche globale permet de couvrir les cas d'utilisation énoncés au début de l'étude :
+* [UC1] *Mutualisation du code* afin d'éviter de la duplication de code.
+  * [S1] les traitements peuvent être centralisés par défaut dans la classe d'interception
+  * [S1A] les traitements d'exceptions ayant le même ancêtre peuvent être communalisés
+  * [S1B] les traitements par défaut sont centralisés
+* [UC2] *Extensibilité et souplesse* afin de supporter les différentes erreurs des codes existants.
+  * [S1A] permet d'ajouter des traitements spécifiques
+* [UC3] *Gestion des exceptions non prévues* afin de prendre en compte tous les cas possibles et empêcher le serveur REST de tomber.
+  * [S1B] cette méthode permet de traiter les cas non prévus hormis ceux du type [S2B].
+* [UC4] *Construction personnalisée des réponses* afin de respecter les normes choisies ou les demandes spécifiques du client de l'interface.
+  * [S1A] et [S1B] permettent de créer des réponses spécifiques
 
 
 ## Sources
